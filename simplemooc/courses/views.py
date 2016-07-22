@@ -25,6 +25,7 @@ def details(request, slug):
         form = ContactCourse(request.POST)
         if form.is_valid():
             context['is_valid'] = True
+            form.send_mail(course)
             # acessando campo do form
             # form.cleaned_data['name']
             # form.cleaned_data['email']
