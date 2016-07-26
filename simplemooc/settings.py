@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    'simplemooc.accounts',
     'simplemooc.core',
     'simplemooc.courses',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -140,3 +142,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'joseadolfojr@gmail.com'
 CONTACT_EMAIL = 'contato@simplemooc.com'
+
+#Auth
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
