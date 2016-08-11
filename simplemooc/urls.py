@@ -1,6 +1,6 @@
 from simplemooc.core.views import home, contact
 from simplemooc.courses.views import courses, details
-from simplemooc.accounts.views import register
+from simplemooc.accounts.views import register, dashboard, edit, edit_password
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
@@ -9,9 +9,10 @@ from django.contrib.auth.views import login, logout
 
 
 urlpatterns = [
+    url(r'^dashboard/$', dashboard, name='dashboard'),
+
     url(r'^$', home, name='home'),
     url(r'^admin/', admin.site.urls),
-
 
     url(r'^contato/$', contact, name='contact'),
     url(r'^cursos/', courses, name='courses'),
@@ -23,7 +24,12 @@ urlpatterns = [
         {'next_page': 'home'}, name='logout'),
 
     url(r'^cadastro/$', register, name='register'),
+    url(r'^editar/$', edit, name='edit'),
+    url(r'^editar-senha/$', edit_password, name='edit_password'),
+
     url(r'^(?P<slug>[\w_-]+)/$', details, name='details'),
+
+
 
 ]
 
